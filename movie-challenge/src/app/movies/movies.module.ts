@@ -9,6 +9,8 @@ import { SelectsComponent } from './components/selects/selects.component';
 @NgModule({
   imports: [CommonModule, AppComponent, HeaderComponent, SelectsComponent],
 
-  declarations: [],
+  declarations: [
+    SelectsComponent
+  ],
 })
 export class MoviesModule {}

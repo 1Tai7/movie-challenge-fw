@@ -6,7 +6,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { CardsContainerComponent } from './components/cards-container/cards-container.component';
-import { HomeComponent } from './pages/home/home.component';
+import { HomePageComponent } from './pages/home/home.component';
 
 
 @NgModule({
@@ -17,9 +17,8 @@ import { HomeComponent } from './pages/home/home.component';
     FooterComponent,
     PaginationComponent,
     CardsContainerComponent,
+    HomePageComponent,
   ],
-  declarations: [
-    HomeComponent
-  ],
+  declarations: [],
 })
 export class MoviesModule {}

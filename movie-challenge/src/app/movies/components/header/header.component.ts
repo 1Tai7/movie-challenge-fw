@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { FooterComponent } from '../footer/footer.component';
+import { DropdownComponent } from '../dropdown/dropdown.component';
 
 @Component({
   selector: 'movies-header',
   templateUrl: './header.component.html',
   standalone: true,
-  imports: []
+  imports: [DropdownComponent]
 })
 export class HeaderComponent {
 

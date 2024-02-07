@@ -7,6 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { CardsContainerComponent } from './components/cards-container/cards-container.component';
 import { HomePageComponent } from './pages/home/home.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { HomePageComponent } from './pages/home/home.component';
     PaginationComponent,
     CardsContainerComponent,
     HomePageComponent,
+    DropdownComponent,
   ],
   declarations: [],
 })

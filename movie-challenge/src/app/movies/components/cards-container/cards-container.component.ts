@@ -16,7 +16,10 @@ export class CardsContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.getMovies().subscribe((data: any) => {
-      this.movies = data.results;
+      this.movies = data.results.map((movies: any) => ({
+        ...movies,
+        release_year: new Date(movies.release_date).getFullYear(),
+      }));
       console.log(data);
     });
   }

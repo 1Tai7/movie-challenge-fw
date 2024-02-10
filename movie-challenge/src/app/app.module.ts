@@ -6,12 +6,20 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
-
 @NgModule({
-  imports: [AppComponent,
-     CommonModule,
-     BrowserModule,
-     MoviesModule,
-     HttpClientModule],
+  imports: [
+    AppComponent,
+    CommonModule,
+    BrowserModule,
+    MoviesModule,
+    HttpClientModule,
+
+  ],
 })
-export class AppModule {}
+export class AppModule {
+
+
+
+
+
+}

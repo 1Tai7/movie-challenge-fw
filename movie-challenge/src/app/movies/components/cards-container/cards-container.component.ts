@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MoviesService } from '../services/movies.service';
 import { CommonModule } from '@angular/common';
 
@@ -11,16 +11,22 @@ import { CommonModule } from '@angular/common';
 })
 export class CardsContainerComponent implements OnInit {
   movies: any[] = [];
+  @Input() set numPage(value: number) {
+    this.getPage(value);
+  }
 
   constructor(private apiService: MoviesService) {}
 
   ngOnInit(): void {
-    this.apiService.getMovies().subscribe((data: any) => {
+    this.getPage(1);
+  }
+  getPage(page: number) {
+    this.apiService.goProducts(page).subscribe((data: any) => {
+      console.log('data', data);
       this.movies = data.results.map((movies: any) => ({
         ...movies,
         release_year: new Date(movies.release_date).getFullYear(),
       }));
-      console.log(data);
     });
   }
 }

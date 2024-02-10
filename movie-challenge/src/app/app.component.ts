@@ -6,7 +6,7 @@ import { HomePageComponent } from './movies/pages/home/home.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [HomePageComponent],
+  imports: [HomePageComponent, ],
 })
 export class AppComponent {
   public title: string = 'movie-challenge';

@@ -1,13 +1,12 @@
 <div>
   <movies-header></movies-header>
-
   <div>
-    <movies-cards-container></movies-cards-container>
+    <movies-cards-container [numPage]="numberPages" ></movies-cards-container>
+    <movies-pagination (paginatorEvent)="getNumberPage($event)"></movies-pagination>
 
   </div>
 
 
-  <movies-pagination></movies-pagination>
 
   <movies-footer class="card-footer"></movies-footer>
 </div>

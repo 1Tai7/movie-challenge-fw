@@ -11,7 +11,6 @@ import { CardsContainerComponent } from './components/cards-container/cards-cont
 @NgModule({
   imports: [
     CommonModule,
-
     CardsContainerComponent,
     HeaderComponent,
     FooterComponent,

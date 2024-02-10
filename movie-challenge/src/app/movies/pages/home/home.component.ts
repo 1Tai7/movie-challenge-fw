@@ -10,8 +10,22 @@ import { FooterComponent } from '../../components/footer/footer.component';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   standalone: true,
-  imports: [CommonModule, HeaderComponent, CardsContainerComponent, PaginationComponent, FooterComponent]
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    CardsContainerComponent,
+    PaginationComponent,
+    FooterComponent,
+  ],
 })
 export class HomePageComponent {
+  numberPages: number = 1;
 
+  getNumberPage(page: any) {
+    this.numberPages = page;
+
+    // this.apiService
+    //   .goProducts(page)
+    //   .subscribe((data: any) => this.apiService.setdataSource(data.result));
+  }
 }

@@ -15,15 +15,12 @@ export class PaginationComponent {
 
   @Output() paginatorEvent = new EventEmitter<number>();
 
-  movies: any[] = [];
-  $localize: any = '';
+
   constructor(private apiService: MoviesService) {}
 
   onClick(counter: number): void {
     this.currentPage = this.currentPage + counter;
     this.paginatorEvent.emit(this.currentPage);
-    // this.apiService
-    //   .goProducts(this.currentPage)
-    //  .subscribe((data: any) => this.apiService.setdataSource(data.result));
+
   }
 }

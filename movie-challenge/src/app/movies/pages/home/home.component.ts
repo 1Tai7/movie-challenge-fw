@@ -20,12 +20,13 @@ import { FooterComponent } from '../../components/footer/footer.component';
 })
 export class HomePageComponent {
   numberPages: number = 1;
+  idMovie: string = '';
 
   getNumberPage(page: any) {
     this.numberPages = page;
+  }
 
-    // this.apiService
-    //   .goProducts(page)
-    //   .subscribe((data: any) => this.apiService.setdataSource(data.result));
+  getIdMovie(id: any) {
+    this.idMovie = id;
   }
 }

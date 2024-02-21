@@ -9,11 +9,11 @@
           <div class="card-img-overlay ">
             <h5 class="card-title text-bg-primary text-center"
               style="width: 3rem; border-radius: 10px; font-size: 1rem;">
-              {{movie.release_year}}</h5>
+              {{movie.release_date | date:"y"}}</h5>
           </div>
         </div>
         <div class="card-footer text-center">
-        <strong>{{movie.title}}</strong>
+          <strong>{{movie.title}}</strong>
         </div>
       </div>
     </div>

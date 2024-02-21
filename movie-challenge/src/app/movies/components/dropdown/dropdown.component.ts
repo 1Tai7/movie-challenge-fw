@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { MoviesService } from '../services/movies.service';
+import { HttpClient } from '@angular/common/http';
+import { buffer } from 'rxjs';
 
 @Component({
   selector: 'movies-dropdown',
@@ -8,42 +11,20 @@ import { Component } from '@angular/core';
   imports: [CommonModule],
 })
 export class DropdownComponent {
- private movies: Array<{ text: string }> = [];
+  public movies: any = [];
+  public genre: any = [];
 
-  constructor() {
-    this.movies = [
-      { text: 'Acción' },
-      { text: 'Aventura' },
-      { text: 'Comedia' },
-      { text: 'Ciencia Ficción' },
-      { text: 'Fantasía' },
-      { text: 'Misterio' },
-      { text: 'Romance' },
-      { text: 'Thriller' },
-      { text: 'Terror' },
-    ];
+  @Output() dropdownEvent = new EventEmitter<string>();
 
+  constructor(private http: HttpClient, private apiService: MoviesService) {}
 
-
+  ngOnInit() {
+    this.apiService.getGenre().subscribe((genre: any) => {
+      console.log(genre.genres);
+      return (this.genre = genre.genres);
+    });
   }
-
-  get movie() {
-    return this.movies;
+  sendIdMovie(movie: string) {
+    this.dropdownEvent.emit(movie);
   }
-
-private compareMovies(a: {text: string}, b: {text: string}): number{
- if (a.text < b.text) {
-    return -1;
-  } else if (a.text > b.text) {
-    return 1;
-  } else {
-    return 0;
-  }
-
-
-    this.movies.sort(this.compareMovies);
-    this.movies.sort((a, b) => b.text.localeCompare(a.text));
-
-}
-
 }

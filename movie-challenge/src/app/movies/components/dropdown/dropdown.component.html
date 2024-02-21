@@ -1,5 +1,6 @@
 <button class=" col navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
   aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+
   <span class="navbar-toggler-icon"></span>
 </button>
 <div class="d-flex flex-row  p-2">
@@ -8,9 +9,13 @@
       <li class="nav-item dropdown">
         <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           Genero
+
         </button>
+
         <ul class="dropdown-menu dropdown-menu-dark">
-          <li class="dropdown-item" *ngFor="let item of movie">{{item.text}}</li>
+          <ng-container *ngFor="let dropdown of genre">
+            <li (click)="sendIdMovie(dropdown.id)" class="dropdown-item">{{dropdown.name}}</li>
+          </ng-container>
         </ul>
       </li>
     </ul>
@@ -20,10 +25,10 @@
     <ul class="navbar-nav">
       <li class="nav-item dropdown">
         <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          Ordenar por:
+          Ordenar por
         </button>
         <ul class="dropdown-menu dropdown-menu-dark">
-          <li *ngFor="let item of movie" class="dropdown-item">{{item.text}}</li>
+          <li *ngFor="let item of movies" class="dropdown-item">{{item.text}}</li>
 
 
         </ul>

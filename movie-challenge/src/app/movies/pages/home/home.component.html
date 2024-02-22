@@ -1,7 +1,7 @@
 <div>
-  <movies-header (headerIdEvent)="getIdMovie($event)"></movies-header>
+  <movies-header (headerIdEvent)="getIdMovie($event)" (sortIdEvent)="getSort($event)"></movies-header>
   <div>
-    <movies-cards-container [numPage]="numberPages" [idGenre]="idMovie"></movies-cards-container>
+    <movies-cards-container [numPage]="numberPages" [idGenre]="idMovie" [idSortBy]="idSort"></movies-cards-container>
     <movies-pagination (paginatorEvent)="getNumberPage($event)"></movies-pagination>
 
   </div>

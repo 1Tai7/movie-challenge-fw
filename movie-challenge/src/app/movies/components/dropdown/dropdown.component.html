@@ -28,8 +28,8 @@
           Ordenar por
         </button>
         <ul class="dropdown-menu dropdown-menu-dark">
-          <li *ngFor="let item of movies" class="dropdown-item">{{item.text}}</li>
-
+          <li (click)="sortBy('original_title.asc')" class="dropdown-item">A - Z</li>
+          <li (click)="sortBy('original_title.desc')" class="dropdown-item">Z - A</li>
 
         </ul>
       </li>

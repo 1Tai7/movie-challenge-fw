@@ -15,6 +15,7 @@ export class DropdownComponent {
   public genre: any = [];
 
   @Output() dropdownEvent = new EventEmitter<string>();
+  @Output() sortEvent = new EventEmitter<string>();
 
   constructor(private http: HttpClient, private apiService: MoviesService) {}
 
@@ -26,5 +27,8 @@ export class DropdownComponent {
   }
   sendIdMovie(movie: string) {
     this.dropdownEvent.emit(movie);
+  }
+  sortBy(sort: string) {
+    this.sortEvent.emit(sort);
   }
 }

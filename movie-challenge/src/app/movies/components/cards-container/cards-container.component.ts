@@ -22,6 +22,11 @@ export class CardsContainerComponent implements OnInit {
       this.clickGenre(value);
     }
   }
+  @Input() set idSortBy(value: string) {
+    if (`${value}`.length > 0) {
+      this.clickSort(value);
+    }
+  }
 
   constructor(private apiService: MoviesService) {}
   ngOnInit(): void {
@@ -42,6 +47,15 @@ export class CardsContainerComponent implements OnInit {
         ...movies,
         release_year: new Date(movies.release_date).getFullYear(),
       }));
+    });
+  }
+  clickSort(sortId: string) {
+    this.apiService.getSort(sortId).subscribe((resultMovie: any) => {
+      this.movies = resultMovie.results.map((movies: any) => ({
+        ...movies,
+        release_year: new Date(movies.release_date).getFullYear(),
+      }));
+      console.log(resultMovie);
     });
   }
 }

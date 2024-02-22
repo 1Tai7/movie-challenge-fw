@@ -9,8 +9,12 @@ import { DropdownComponent } from '../dropdown/dropdown.component';
 })
 export class HeaderComponent {
   @Output() headerIdEvent = new EventEmitter<string>();
+  @Output() sortIdEvent = new EventEmitter<string>();
 
   idGenre(idGenre: string) {
     this.headerIdEvent.emit(idGenre);
+  }
+  idMovie(idSort: string) {
+    this.sortIdEvent.emit(idSort);
   }
 }

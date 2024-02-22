@@ -21,6 +21,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 export class HomePageComponent {
   numberPages: number = 1;
   idMovie: string = '';
+  idSort: string = '';
 
   getNumberPage(page: any) {
     this.numberPages = page;
@@ -28,5 +29,8 @@ export class HomePageComponent {
 
   getIdMovie(id: any) {
     this.idMovie = id;
+  }
+  getSort(idMovieSort: any){
+    this.idSort = idMovieSort;
   }
 }

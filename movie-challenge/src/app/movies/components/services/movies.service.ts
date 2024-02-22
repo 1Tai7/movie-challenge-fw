@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ResponseMoviesByGenre } from '../../interfaces/response.api';
 
-
 @Injectable({ providedIn: 'root' })
 export class MoviesService {
   private apikey: string = localStorage.getItem('apikey') || '';
@@ -27,14 +26,7 @@ export class MoviesService {
   setdataSource(data: any) {
     this._dataSource = data;
   }
-  getMovieGenre(idGenre: string) {
-    const apiUrl = `https://api.themoviedb.org/3/discover/movie?with_genres=${idGenre}`; // Adapta la URL según tu API
-    const result = this.http.get<ResponseMoviesByGenre>(apiUrl, {
-      headers: this.requestOptions.headers,
-    });
 
-    return result;
-  }
   //tarjetas
   getMovies() {
     return this.http.get('https://api.themoviedb.org/3/discover/movie', {
@@ -49,7 +41,6 @@ export class MoviesService {
 
     return result;
   }
-  //https://api.themoviedb.org/3/genre/movie/list?language=en
   getGenre() {
     return this.http.get(
       'https://api.themoviedb.org/3/genre/movie/list?language=es',
@@ -57,5 +48,22 @@ export class MoviesService {
         headers: this.requestOptions.headers,
       }
     );
+  }
+  getMovieGenre(idGenre: string) {
+    const apiUrl = `https://api.themoviedb.org/3/discover/movie?with_genres=${idGenre}`; // Adapta la URL según tu API
+    const result = this.http.get<ResponseMoviesByGenre>(apiUrl, {
+      headers: this.requestOptions.headers,
+    });
+
+    return result;
+  }
+  //sort_by=title.asc
+  getSort(sort: string) {
+    const apiUrl = `https://api.themoviedb.org/3/discover/movie?sort_by=${sort}`; // Adapta la URL según tu API
+    const result = this.http.get(apiUrl, {
+      headers: this.requestOptions.headers,
+    });
+
+    return result;
   }
 }

@@ -2,7 +2,9 @@
 
   <a class="navbar-brand" href="#">DEVFILMS</a>
 
-  <movies-dropdown (dropdownEvent)="idGenre($event)"></movies-dropdown>
+  <movies-dropdown
+   (dropdownEvent)="idGenre($event)"
+   (sortEvent)="idMovie($event)"></movies-dropdown>
 
 
 

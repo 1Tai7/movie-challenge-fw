@@ -4,6 +4,9 @@ import { ResponseMoviesByGenre } from '../../interfaces/response.api';
 
 @Injectable({ providedIn: 'root' })
 export class MoviesService {
+  static goProducts(): any {
+    throw new Error('Method not implemented.');
+  }
   private apikey: string = localStorage.getItem('apikey') || '';
   constructor(private http: HttpClient) {}
   public _dataSource: any = '';

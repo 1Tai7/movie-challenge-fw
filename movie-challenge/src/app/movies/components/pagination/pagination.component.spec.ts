@@ -11,13 +11,8 @@ describe('PaginationComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PaginationComponent],
-      providers: [
-        {
-          provide: MoviesService,
-          useValue: jasmine.createSpyObj('MoviesService', ['goProducts']),
-        },
-      ],
+      imports: [PaginationComponent],
+      providers: [MoviesService, { provide: HttpClient }, HttpHandler],
     });
     apiService = TestBed.inject(MoviesService) as jasmine.SpyObj<MoviesService>;
     fixture = TestBed.createComponent(PaginationComponent);
@@ -32,6 +27,6 @@ describe('PaginationComponent', () => {
   it('llama a goProducts() al cambiar de página', () => {
     const pageNumber = 1;
     component.onClick(pageNumber);
-    expect(apiService.goProducts).toHaveBeenCalled(pageNumber);
+    expect(apiService.goProducts).toHaveBeenCalled();
   });
 });

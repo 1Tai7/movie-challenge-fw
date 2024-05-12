@@ -6,12 +6,13 @@
       <div *ngFor="let movie of movies" class="card p-1 mb-3" style="width: 18rem;">
         <div class=" text-bg-dark ">
           <ng-container *ngIf="movie.poster_path === null; else renderPath">
-            <img
+            <img loading="lazy"
               [src]="'https://www.shutterstock.com/image-vector/default-image-icon-vector-missing-260nw-2086941550.jpg'"
               class="card-img" alt="{{movie.title}}">
           </ng-container>
           <ng-template #renderPath>
-            <img [src]="'https://image.tmdb.org/t/p/w500/'+ movie.poster_path" class="card-img" alt="{{movie.title}}">
+            <img loading="lazy" [src]="'https://image.tmdb.org/t/p/w500/'+ movie.poster_path" class="card-img"
+              alt="{{movie.title}}">
           </ng-template>
           <div class="card-img-overlay ">
             <h5 class="card-title text-bg-primary text-center"

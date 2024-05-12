@@ -1,13 +1,15 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ResponseMoviesByGenre } from '../../interfaces/response.api';
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class MoviesService {
   static goProducts(): any {
     throw new Error('Method not implemented.');
   }
-  private apikey: string = localStorage.getItem('apikey') || '';
+  private apikey: string =
+    localStorage.getItem('apikey') || import.meta.env.NG_APP_API_KEY || '';
   constructor(private http: HttpClient) {}
   public _dataSource: any = '';
 

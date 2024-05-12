@@ -34,7 +34,6 @@ export class CardsContainerComponent implements OnInit {
   }
   getPage(page: number) {
     this.apiService.goProducts(page).subscribe((data: any) => {
-      console.log('data', data);
       this.movies = data.results.map((movies: any) => ({
         ...movies,
         release_year: new Date(movies.release_date).getFullYear(),
@@ -55,7 +54,6 @@ export class CardsContainerComponent implements OnInit {
         ...movies,
         release_year: new Date(movies.release_date).getFullYear(),
       }));
-      console.log(resultMovie);
     });
   }
 }

@@ -21,7 +21,6 @@ export class DropdownComponent {
 
   ngOnInit() {
     this.apiService.getGenre().subscribe((genre: any) => {
-      console.log(genre.genres);
       return (this.genre = genre.genres);
     });
   }
